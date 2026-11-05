@@ -4,7 +4,24 @@ version = "1.0.0"
 priority = 100
 
 [compatibility]
-horizon_revision = "latest"
+horizon_revision = "624c4f6789a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5"
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client/src/game.rs"
+name = "official_armor_hud"
+source = "runtime.rs"
+
+[[injection]]
+id = "hud"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
+helper = "hook_render.rs"
+bindings = [
+    { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+    { name = "batch", ty = "&mut horizon_client::hud::HudBatch", value = "&mut *batch" },
+    { name = "corners", ty = "&mut horizon_client::extras_hud::Corners", value = "&mut *corners" },
+]
 
 [[module]]
 id = "runtime"
