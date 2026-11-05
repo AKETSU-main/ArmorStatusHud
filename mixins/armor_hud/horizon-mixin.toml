@@ -1,3 +1,8 @@
+[mod]
+id = "armor_status_hud"
+name = "Armor Status HUD"
+description = "Displays armor durability on the HUD"
+
 [mixin]
 name = "official_armor_hud"
 module = "runtime"
@@ -5,3 +10,4 @@ module = "runtime"
 [[hooks]]
 point = "on_render_hud"
 handler = "hook_render::on_render_hud"
+
