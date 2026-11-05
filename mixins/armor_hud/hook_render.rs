@@ -1,8 +1,5 @@
-use crate::game::native_hooks::HudContext;
-use crate::game::official_armor_hud::ArmorHudState;
-
-fn on_render_hud(ctx: &mut HudContext) {
-    let state = ctx.get_mod_state::<ArmorHudState>();
+fn on_render_hud(ctx: &mut crate::game::native_hooks::HudContext) {
+    let state = ctx.get_mod_state::<crate::game::official_armor_hud::ArmorHudState>();
     if !state.enabled { return; }
 
     let player = ctx.player();
@@ -12,7 +9,7 @@ fn on_render_hud(ctx: &mut HudContext) {
     for (text, color) in lines {
         ctx.renderer.draw_text(
             &text,
-            10.0, // X координата (левый край)
+            10.0,
             y_offset,
             color,
         );
