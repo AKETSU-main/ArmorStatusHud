@@ -1,0 +1,8 @@
+[package]
+name = "armor-status-hud"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Зависимости добавляются здесь, если нужны внешние крейты.
+# Основные API Horizon предоставляются самой игрой при сборке.
