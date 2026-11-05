@@ -4,10 +4,10 @@ version = "1.0.0"
 priority = 100
 
 [compatibility]
-horizon_revision = "624c4f6789a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5"
+horizon_revision = "ba6344a59cb9e755b730dcf02285fc0d33b97d3c"
 
 [[module]]
-id = "runtime"
+id = "armor_hud_runtime"
 file = "crates/horizon-client/src/game.rs"
 name = "official_armor_hud"
 source = "runtime.rs"

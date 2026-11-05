@@ -1,7 +1,7 @@
 use crate::game::native_hooks::HudContext;
 use crate::game::official_armor_hud::ArmorHudState;
 
-pub fn on_render_hud(ctx: &mut HudContext) {
+fn on_render_hud(ctx: &mut HudContext) {
     let state = ctx.get_mod_state::<ArmorHudState>();
     if !state.enabled { return; }
 
