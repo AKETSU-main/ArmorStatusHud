@@ -1,13 +1,26 @@
 [mod]
 id = "armor_status_hud"
-name = "Armor Status HUD"
-description = "Displays armor durability on the HUD"
+version = "1.0.0"
+priority = 100
 
-[mixin]
+[compatibility]
+horizon_revision = "latest"
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client/src/game.rs"
 name = "official_armor_hud"
-module = "runtime"
+source = "runtime.rs"
 
-[[hooks]]
-point = "on_render_hud"
-handler = "hook_render::on_render_hud"
+[[injection]]
+id = "hud"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
+helper = "hook_render.rs"
+bindings = [
+    { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+    { name = "batch", ty = "&mut horizon_client::hud::HudBatch", value = "&mut *batch" },
+    { name = "corners", ty = "&mut horizon_client::extras_hud::Corners", value = "&mut *corners" },
+]
+
 
